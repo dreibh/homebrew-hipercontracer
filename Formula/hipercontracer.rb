@@ -58,6 +58,7 @@ class Hipercontracer < Formula
     args = std_cmake_args + %W[
       -GNinja
       -DCMAKE_MACOSX_RPATH=ON
+      -DCMAKE_INSTALL_RPATH=#{rpath}
       -DWITH_STATIC_LIBRARIES=OFF
       -DWITH_SHARED_LIBRARIES=ON
       -DSTATIC_BUILD=OFF
