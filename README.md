@@ -1,15 +1,24 @@
-# Dreibh Hipercontracer
+# Thomas Dreibholz's Homebrew Tap
 
 ## How do I install these formulae?
 
-`brew install dreibh/hipercontracer/<formula>`
+Use:
 
-Or `brew tap dreibh/hipercontracer` and then `brew install <formula>`.
+```bash
+brew install dreibh/tap/<formula>
+```
+
+Or:
+
+```bash
+brew tap dreibh/tap
+brew install <formula>
+```
 
 Or, in a `brew bundle` `Brewfile`:
 
 ```ruby
-tap "dreibh/hipercontracer"
+tap "dreibh/tap"
 brew "<formula>"
 ```
 
