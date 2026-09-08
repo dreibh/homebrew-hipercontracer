@@ -1,8 +1,8 @@
 class TdSystemTools < Formula
   desc "Tools for basic system management and maintenance"
   homepage "https://www.nntb.no/~dreibh/system-tools/"
-  url "https://www.nntb.no/~dreibh/system-tools/download/td-system-tools-2.7.13.tar.xz"
-  sha256 "fbba0a64c364f2997965b63402bf3ee4ac2ed918ed9da2cc732e04507e67fa95"
+  url "https://www.nntb.no/~dreibh/system-tools/download/td-system-tools-2.7.14.tar.xz"
+  sha256 "160345f8415ea0c8a32b0db338c17bd924096d201e8b6acbf00247666dd16443"
   license "GPL-3.0-or-later"
 
   # Options OFF by default (matching OPTIONS_DEFAULT exclusions in FreeBSD)
