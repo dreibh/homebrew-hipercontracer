@@ -32,32 +32,25 @@ class TdSystemTools < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
 
-  # Mandatory runtime dependencies
+  # Alphabetically sorted feature runtime dependencies
   depends_on "bash"
-  depends_on "gnu-getopt"
-
-  # Option-driven dependencies (including option implications)
-  depends_on "fontconfig" if build.with?("gimp-scripts") || build.with?("gimp-scripts-examples")
-  depends_on "graphicsmagick" if build.with?("gimp-scripts") || build.with?("gimp-scripts-examples")
-
-  depends_on "gettext" if build.with?("nls")
-
   depends_on "figlet" if build.with?("system-info") ||
                          build.with?("system-info-default-banner") ||
                          build.with?("system-info-examples") ||
                          build.with?("system-info-in-profiles")
-
+  depends_on "fontconfig" if build.with?("gimp-scripts") || build.with?("gimp-scripts-examples")
+  depends_on "gettext" if build.with?("nls")
+  depends_on "gnu-getopt"
+  depends_on "graphicsmagick" if build.with?("gimp-scripts") || build.with?("gimp-scripts-examples")
   depends_on "mbuffer" if build.with?("system-info") ||
                           build.with?("system-info-default-banner") ||
                           build.with?("system-info-examples") ||
                           build.with?("system-info-in-profiles") ||
                           build.with?("x509-tools")
-
   depends_on "openssl@3" if build.with?("x509-tools")
   depends_on "python@3.12" if build.with?("x509-tools")
 
   def install
-    # Resolve option implications (_IMPLIES logic from FreeBSD port)
     gimp_scripts = build.with?("gimp-scripts") || build.with?("gimp-scripts-examples")
 
     system_info = build.with?("system-info") ||
@@ -66,15 +59,10 @@ class TdSystemTools < Formula
                   build.with?("system-info-in-profiles")
 
     get_system_info = build.with?("get-system-info") || system_info
-
     random_sleep = build.with?("random-sleep") || build.with?("try-hard")
-
     x509_tools = build.with?("x509-tools")
-
     print_utf8 = build.with?("print-utf8") || system_info || x509_tools
-
     text_block = build.with?("text-block") || x509_tools
-
     unix_timestamp_tools = build.with?("unix-timestamp-tools") || x509_tools
 
     args = std_cmake_args + %W[
@@ -109,6 +97,6 @@ class TdSystemTools < Formula
   end
 
   test do
-    assert_predicate bin/"get-system-info", :exist? if build.with?("get-system-info") || build.with?("system-info")
+    assert_path_exists bin/"get-system-info" if build.with?("get-system-info") || build.with?("system-info")
   end
 end
