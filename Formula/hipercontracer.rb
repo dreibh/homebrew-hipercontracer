@@ -1,4 +1,4 @@
-class Hipercontracer < Formula
+class HiPerConTracer < Formula
   desc "High-Performance Connectivity Tracer measurement framework"
   homepage "https://www.nntb.no/~dreibh/hipercontracer/"
   url "https://www.nntb.no/~dreibh/hipercontracer/download/hipercontracer-2.2.11.tar.xz"
