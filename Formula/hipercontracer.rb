@@ -46,7 +46,7 @@ class Hipercontracer < Formula
   # Feature-driven dependencies
   depends_on "ghostscript" if build.with? "icons"
   depends_on "graphicsmagick" if build.with? "icons"
-  depends_on "mupdf" if build.with? "icons"
+  depends_on "pdf2svg" if build.with? "icons"
 
   depends_on "mariadb-connector-c" if build.with? "mariadb"
   depends_on "mongo-c-driver" if build.with? "mongodb"
@@ -57,7 +57,6 @@ class Hipercontracer < Formula
   def install
     args = std_cmake_args + %W[
       -GNinja
-      -DCMAKE_MACOSX_RPATH=ON
       -DCMAKE_INSTALL_RPATH=#{rpath}
       -DWITH_STATIC_LIBRARIES=OFF
       -DWITH_SHARED_LIBRARIES=ON
