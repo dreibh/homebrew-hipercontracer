@@ -1,8 +1,8 @@
 class Netperfmeter < Formula
   desc "Network Performance Meter"
   homepage "https://www.nntb.no/~dreibh/netperfmeter/"
-  url "https://www.nntb.no/~dreibh/netperfmeter/download/netperfmeter-2.0.10.tar.xz"
-  sha256 "2a397409779fe51a683602af6265e19708ef4d4649a2671b00add3aa69882bf4"
+  url "https://www.nntb.no/~dreibh/netperfmeter/download/netperfmeter-2.0.11.tar.xz"
+  sha256 "2ef94e568767dcd4646f0995dc38a9dd5f155b043d9c05054022b0026f01a70a"
   license "GPL-3.0-or-later"
 
   # Options ON by default (matching FreeBSD OPTIONS_DEFAULT)
@@ -24,9 +24,6 @@ class Netperfmeter < Formula
   depends_on "shared-mime-info" if build.with? "icons"
 
   def install
-    # Environment workaround for ARM build issue matching FreeBSD MAKE_ENV
-    ENV["OMP_NUM_THREADS"] = "1"
-
     args = std_cmake_args + %W[
       -GNinja
       -DCMAKE_MACOSX_RPATH=ON
