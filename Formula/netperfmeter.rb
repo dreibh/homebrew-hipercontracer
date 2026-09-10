@@ -19,7 +19,7 @@ class Netperfmeter < Formula
   # Feature dependencies (strictly sorted alphabetically)
   depends_on "ghostscript" if build.with? "icons"
   depends_on "graphicsmagick" if build.with? "icons"
-  depends_on "mupdf" if build.with? "icons"
+  depends_on "pdf2svg" if build.with? "icons"
   depends_on "r" if build.with? "plot-programs"
   depends_on "shared-mime-info" if build.with? "icons"
 
